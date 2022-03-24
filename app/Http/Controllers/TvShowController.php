@@ -15,5 +15,10 @@ class TvShowController extends Controller
         $tvshowlist = DB::table('tv_shows')->get();
         return view('tvshows', ['tvshowlist' => $tvshowlist]);
     }
-    
+    public function searchTvShow(Request $request)
+    {
+        $search_tvshow = $request['value'];
+        $listTvshow = DB::table('tv_shows')->where('tvshow_name',$search_tvshow)->first();
+        echo json_encode($listTvshow, true);
+    }
 }
