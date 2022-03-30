@@ -1,0 +1,61 @@
+#navbarNav a{
+  color:white;
+}
+
+#navbarNav
+{
+  background-color: black;
+}
+
+#movieList
+{
+  padding-right:0;
+  padding-left:0;
+}
+.top-head
+{
+  position: absolute;
+  margin-top:10px;
+ 
+}
+.dropbtn:hover
+{
+  display: inline-block;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  left: auto !important;
+  right: 0 !important;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.Imgbox {
+  transition: transform .2s;
+  margin: 0 auto;
+}
+
+.Imgbox:hover {
+  -ms-transform: scale(115); /* IE 9 */
+  -webkit-transform: scale(1.2); /* Safari 3-8 */
+  transform: scale(1.2); 
+}
+
