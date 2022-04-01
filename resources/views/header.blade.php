@@ -37,4 +37,68 @@
 </header>
 <body>
  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  
+ <script>
+   // Code to search Movie Name 
+   $(document).ready(function(){
+    $('#submit').click(function(){
+       var searchValue = $('#search').val();    
+       var token = $('#token').val();
+       $.ajax({
+          type: "POST", 
+          url:'/searchMovie',
+          data:{value:searchValue,_token: "{{ csrf_token() }}" },
+          dataType:'json',
+          success:function(response)
+          {
+           var output = "<h6 style='color:white;margin-left:50px;margint-bottom:20px;'>"+response.movie_name+"</h6><a href='/tvShow'><img src='images/"+response.movie_path+"' style='width:400px;margin-left:50px'></a>";
+            $('#homePage').css('display','none');
+            $('#tvpage').css('display','none');
+            $('.Movie_List').css('display','none');
+            $('.tv_list').css('display','none');
+            $('#showSearch').html(output);
+          }
+       });
+    });
+   });
+
+   // $(document).ready(function(){
+   //  $('#tv_show').click(function(){
+   //   $(location).attr('href','tvShow');
+   //  });
+   // });
+
+   // Code to search TV Show 
+
+   $(document).ready(function(){
+    $('#submit').click(function(){
+       var searchValue = $('#search').val();    
+       var token = $('#token').val();
+
+       $.ajax({
+          type: "POST", 
+          url:'/searchTvShow',
+          data:{value:searchValue,_token: "{{ csrf_token() }}" },
+          dataType:'json',
+          success:function(response)
+          {
+           var output = "<h6 style='color:white;margin-left:50px'>"+response.movie_name+"</h6><a href='/tvShow'><img src='images/"+response.tvshow_path+"' style='width:400px;margin-left:50px'></a>";
+            $('#homePage').css('display','none');
+            $('.Movie_List').css('display','none');
+            $('.tv_list').css('display','none');
+            $('#showSearch').html(output);
+          }
+       });
+    });
+   });
+
+   // Theme Color Change 
+
+    $('#blackTh').click(function() {
+       $('body').css('background','#232323');
+   });
+    $('#whiteTh').click(function() {
+      $('body').css('background','#a2a2a2');
+   });
+ </script>  
