@@ -20,7 +20,16 @@ use App\Http\Controllers\TvShowController;
     //return view('welcome');
 //});
 
+Route::get('/', [HomeController::class, 'home'])->name('Home');
 
+Route::post('/searchMovie', [HomeController::class, 'searchMovie'])->name('searchMovie');
+
+Route::get('/tvShow', function () {
+    return view('search_movie');
+});
+Route::get('/movie', [\App\Http\Controllers\MovieController::class, 'listMovie' ]);
+Route::get('/tv-show', [\App\Http\Controllers\TvShowController::class, 'listTvShow']);
+Route::post('/searchTvShow', [TvShowController::class, 'searchTvShow'])->name('searchTvShow');
 
 
 
